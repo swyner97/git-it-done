@@ -6,18 +6,17 @@ var getRepoName = function() {
   // grab repo name from url query string
   var queryString = document.location.search;
   var repoName = queryString.split("=")[1];
-  
-  // will only display the repo name and make the fetch call if the value for the repoName exists
-  if(repoName) {
-    repoNameEl.textContent = repoName; 
+
+  if (repoName) {
+    // display repo name on the page
+    repoNameEl.textContent = repoName;
+
     getRepoIssues(repoName);
-  }
-  else {
+  } else {
     // if no repo was given, redirect to the homepage
     document.location.replace("./index.html");
   }
-  }
-
+};
 
 var getRepoIssues = function(repo) {
   // format the github api url
